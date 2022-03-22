@@ -1,5 +1,4 @@
-def GRADING(X_norm_sklearn, X_norm,theta_best, theta_cost,MAE_val, MAE_skl,MSE_val, MSE_skl,RMSE_val,RMSE_skl,R_square_val,R_square_skl,RMSE_training_LR,RMSE_test_LR,
-ridge_regression_pipeline,RMSE_training_Ridge, RMSE_test_Ridge,RMSE_training_Lasso, RMSE_test_Lasso,lasso_regression_pipeline, coef_sogmax):
+def GRADING(X_norm_sklearn,X_norm,theta_best,theta_cost,MAE_val,MAE_skl,MSE_val,MSE_skl,RMSE_val,RMSE_skl,R_square_val,R_square_skl,RMSE_training_LR,RMSE_test_LR,ridge_regression_pipeline,RMSE_training_Ridge,RMSE_test_Ridge,RMSE_training_Lasso,RMSE_test_Lasso,lasso_regression_pipeline,coef_sogmax):
 
 
     grades={"feature_Normalize_implementation":False, 
