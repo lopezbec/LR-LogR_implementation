@@ -1,23 +1,18 @@
-def GRADING(X_norm_sklearn, X_norm,theta_best, theta_cost,MAE_val, MAE_skl,MSE_val, MSE_skl,RMSE_val,RMSE_skl,R_square_val,R_square_skl,RMSE_training_LR,RMSE_test_LR,
-ridge_regression_pipeline,RMSE_training_Ridge, RMSE_test_Ridge,RMSE_training_Lasso, RMSE_test_Lasso,lasso_regression_pipeline):
+def GRADING(X_norm_sklearn,X_norm,theta_best,theta_cost,MAE_val,MAE_skl,MSE_val,MSE_skl,RMSE_val,RMSE_skl,R_square_val,R_square_skl,RMSE_training_LR,RMSE_test_LR,ridge_regression_pipeline,RMSE_training_Ridge,RMSE_test_Ridge,RMSE_training_Lasso,RMSE_test_Lasso,lasso_regression_pipeline,coef_sogmax):
 
 
     grades={"feature_Normalize_implementation":False, 
-            "normalEqn_Reg":False, "MAE":False,
+             "MAE":False,
             "MSE":False,"RMSE":False,
-            "R_square":False,"Ridge_LR_working":False,"Lasso_LR_working":False}
+            "R_square":False,"Ridge_LR_working":False,"Lasso_LR_working":False, 
+            "Softmax_X_train":False}
 
 
 
 
     try:
-        if(X_norm[1, 1]==-0.2260933675776883): grades["feature_Normalize_implementation"]=True
+        if(round(X_norm_sklearn[1,1],3)==-0.226): grades["feature_Normalize_implementation"]=True
     except: grades["feature_Normalize_implementation"]=False
-
-    try:
-        if(theta_best[2, 0]==-1.5910351642724834  and theta_cost==0.1431121203755772 ): grades["normalEqn_Reg"]=True
-    except: grades["normalEqn_Reg"]=False
-
 
     try:
         if(round(MAE_val,5)==round(MAE_skl,5)): grades["MAE"]=True
@@ -43,6 +38,10 @@ ridge_regression_pipeline,RMSE_training_Ridge, RMSE_test_Ridge,RMSE_training_Las
         if(RMSE_training_Lasso!=None and RMSE_test_Lasso!=None): grades["Lasso_LR_working"]=True
     except: grades["Lasso_LR_working"]=False
 
+    try:
+        if(round(coef_sogmax[0,0],2)==-2.5): grades["Softmax_X_train"]=True
+    except: grades["Softmax_X_train"]=False
+
 
     for x in grades:
         print (x,':',grades[x])
@@ -61,3 +60,4 @@ ridge_regression_pipeline,RMSE_training_Ridge, RMSE_test_Ridge,RMSE_training_Las
     print(ridge_regression_pipeline.named_steps)
     print(" ")
     print(lasso_regression_pipeline.named_steps)
+    print("Check Wine 0.3 training, X_trainng + X_test?")
